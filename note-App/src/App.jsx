@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Pencil } from 'lucide-react';
 
 const App = () => {
@@ -6,6 +6,17 @@ const App = () => {
   const [details,setDetails] = useState("");
   const [tasks,setTasks] = useState([]);
   const [editIdx, setEditIdx] = useState(null);
+
+  
+  useEffect(() => {
+    const savedTasks = JSON.parse(localStorage.getItem("notes") || "[]");
+    setTasks(savedTasks);
+  }, []); // [] => Load from localStorage (only once)
+
+  
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(tasks));
+  }, [tasks]); // [tasks] => Save to localStorage whenever tasks change
 
   function gettingValue(e){
     setTitle(e.target.value);
