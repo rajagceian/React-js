@@ -19,7 +19,7 @@ const App = () => {
   }, [page]);
 
 return (
-  <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-4 md:p-8">
+  <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-200 p-4 md:p-8">
     
     {/* Header */}
     <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
